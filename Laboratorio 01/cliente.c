@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 	// IP do servidor
 	// familia ARPANET
 	// Porta - hton = host to network short (2bytes)
-	servidor.sin_addr.s_addr = inet_addr("127.0.0.1");
+	servidor.sin_addr.s_addr = inet_addr("191.36.13.91"); // colocar IP do servidor aqui
 	servidor.sin_family = AF_INET;
 	servidor.sin_port = htons(1234);
 
