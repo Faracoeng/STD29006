@@ -44,7 +44,7 @@ public class ServidorThread extends Thread {
                     fluxoEntrada.close();
                     fluxoSaida.close();
                     conexao.close();
-                    setConectado(false);
+                    setConectado(false); // para matar o loop
 
                 }
                 System.out.println("Mensagem do cliente: "+ mensagem);
