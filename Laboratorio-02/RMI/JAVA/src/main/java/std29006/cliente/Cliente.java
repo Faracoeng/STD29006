@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Cliente {
-    private static String nomeServidor = "191.36.13.106";
+    private static String nomeServidor = "127.0.0.1";
     private static int porta = 12345;
     private static final String NOMEOBJDIST = "MeuContador";
     public static void main(String args[]) {

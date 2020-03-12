@@ -10,6 +10,8 @@ public class Contador implements ContadorDistribuido {
         this.valor++;
     }
     @Override
-    public int obtemValorAtual() throws RemoteException {return this.valor;}
+    public int obtemValorAtual() throws RemoteException {
+        return this.valor;
+    }
 }
 
