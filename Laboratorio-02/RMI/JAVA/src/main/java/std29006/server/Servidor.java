@@ -16,7 +16,8 @@ public class Servidor {
     private static final String NOMEOBJDIST = "MeuContador";
 
     public static void main(String args[]) {
-        try {// recebendo nome do servidor por argumento de linha de comando
+        try {
+            // recebendo nome do servidor por argumento de linha de comando
              if(args[0] != null){
                  nomeServidor = args[0];
              }// recebendo porta do rmiregistry por argumento de linha de comando
