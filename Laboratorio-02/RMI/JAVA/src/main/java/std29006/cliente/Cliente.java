@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Cliente {
-    private static String nomeServidor = "127.0.0.1";
+    private static String nomeServidor = "191.36.13.106";
     private static int porta = 12345;
     private static final String NOMEOBJDIST = "MeuContador";
     public static void main(String args[]) {
@@ -30,6 +30,9 @@ public class Cliente {
             System.out.println("Valor atual: " + stub.obtemValorAtual());
             System.out.println("Solicitando ao servidor para incrementar o contador");
             stub.incrementa();System.out.println("Valor atual: " + stub.obtemValorAtual());
-            System.out.println("Fim da execu ̧c~ao do cliente!");} catch (RemoteException | NotBoundException ex) {
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);}}
+            System.out.println("Fim da execução do cliente!");
+            }catch (RemoteException | NotBoundException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
 }
