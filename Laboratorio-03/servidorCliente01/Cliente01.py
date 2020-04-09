@@ -12,4 +12,11 @@ p1 = "tcp://"+ HOST +":"+ PORT
 # criando socket de requisicao
 s  = context.socket(zmq.REQ)     
 
-sockets.connect(p1)                   # block until connecteds.send(b"Hello world")           # send messagemessage = s.recv()              # block until responses.send(b"STOP")                  # tell server to stopprint("Reply {}".format(message)) # print result
+sockets.connect(p1) 
+# connect() é usado para conectar-se a um endereço [servidor] remoto.
+
+s.connect(p1)     # bloquear até conectar
+s.send(b"Hello world")           # enviando mensagem
+message = s.recv()              # bloquear ate responder
+s.send(b"STOP")                  # envia "STOP" para encerrar o loop do servidor
+print("Reply {}".format(message)) # printa resultado
