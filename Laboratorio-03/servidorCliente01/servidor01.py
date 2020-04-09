@@ -19,7 +19,13 @@ s = contexto.socket(zmq.REP)
 
 s.bind(p1)
 s.bind(p2)
+
 # bind() associa o socket ao seu endereço local, é por isso que o lado do servidor se ativa, para que os clientes possam usar esse endereço para se conectar ao servidor
+# socket() >> bind() >> listen() >> accept() >> bloqueia ate conectar com cliente, apos isso:
+# read() << write()
+# write() >> read()
+# close() ^^ close() cliente e servidor fecham
+
 while true:
 	message = s.recv() # aguardando por mensagens
 	sMsg = message.decode()
