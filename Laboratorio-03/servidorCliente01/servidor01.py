@@ -19,5 +19,15 @@ s = contexto.socket(zmq.REP)
 
 s.bind(p1)
 s.bind(p2)
-# bind () associa o soquete ao seu endereço local, é por isso que o lado do servidor se liga, para que os clientes possam usar esse endereço para se conectar ao servidor
+# bind() associa o socket ao seu endereço local, é por isso que o lado do servidor se ativa, para que os clientes possam usar esse endereço para se conectar ao servidor
+while true:
+	message = s.recv() # aguardando por mensagens
+	sMsg = message.decode()
+	if not "STOP" in sMsg # verifica se não tem a strig "STOP"
+			      #	em message.decode()
+		print("enviando resposta")
+		# configurar mensagem para ser enviada no formato utf-8 
+		s.send(str("Echo: " + sMsg).encode('utf-8'))
+	else:
+		break # SE TIVER STRING "STOP", SAI DO LOOP
 
