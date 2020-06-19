@@ -5,5 +5,10 @@ package std.server;
 // servidor na rede idependentemente do fluxo
 // principal do programa através do uso de Threads
 
+import java.net.InetAddress;
+
 public class DisparaIP extends Thread{
+
+    public DisparaIP(String ipv4Semlo, InetAddress byName) {
+    }
 }

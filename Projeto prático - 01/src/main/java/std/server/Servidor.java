@@ -7,6 +7,7 @@ package std.server;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.util.Enumeration;
 
 public class Servidor {
@@ -43,6 +44,8 @@ public class Servidor {
             // Thread responsável por disparar IP do servidor por broadcast na rede
             Thread broadcast = new DisparaIP(getIPV4Semlo(), InetAddress.getByName("255.255.255.255"));
 
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
         }
 
     }
