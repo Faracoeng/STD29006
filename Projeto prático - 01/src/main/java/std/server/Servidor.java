@@ -35,6 +35,15 @@ public class Servidor {
     }
 
     public static void main(String[] args) {
+        try{
+            // Variavel utilizada para verificar a quantidade de conexoes ativas no sistema
+            int numeroDeConexoes = 0;
+            // vetor de Threads responsável por guardar as conexoes realizadas com os clientes
+            Thread procesos[] = new Thread[4];
+            // Thread responsável por disparar IP do servidor por broadcast na rede
+            Thread broadcast = new DisparaIP(getIPV4Semlo(), InetAddress.getByName("255.255.255.255"));
+
+        }
 
     }
 }
