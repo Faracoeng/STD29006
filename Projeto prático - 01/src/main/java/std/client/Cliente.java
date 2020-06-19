@@ -4,6 +4,7 @@ package std.client;
 // IP do servidor e estabelecerá uma conecção TCP com ele
 
 
+import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
 public class Cliente {
@@ -15,6 +16,17 @@ public class Cliente {
             // Vetor de byte para receber dados do pacote de broadcast
             byte[] receiveData = new byte[2048];
             // -----------------------------------------------------------------------
+
+            // Cria-se um DatagramPacket para receber pacote proveniente do broadcast que o servidor realizará
+            DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+            // Socket deverá receber o pacote
+            serverSocket.receive(receivePacket);
+            // fecha o seocket após receber o IP do servidor para não dar conflito com outros clientes
+            serverSocket.close();
+            // pegando dado do pacote
+            String dado = new String(receivePacket.getData());
+
+
         }catch (Exception e){
             e.printStackTrace();
         }
