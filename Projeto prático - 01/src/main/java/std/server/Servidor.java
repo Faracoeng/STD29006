@@ -4,10 +4,8 @@ package std.server;
 // contendo seu IP para que as RaspBerry PI consigam se
 // conectar estabelendo conexão TCP
 
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.UnknownHostException;
+import java.io.IOException;
+import java.net.*;
 import java.util.Enumeration;
 
 public class Servidor {
@@ -44,7 +42,23 @@ public class Servidor {
             // Thread responsável por disparar IP do servidor por broadcast na rede
             Thread broadcast = new DisparaIP(getIPV4Semlo(), InetAddress.getByName("255.255.255.255"));
 
-        } catch (UnknownHostException e) {
+            // Justificativa:
+            // --------------------------------------------------------------------------------
+            // getByName() Determina o endereço IP de um host, dado o nome do host, no caso
+            // 255.255.255.255 que é uma representacao textual do endereco de broadcast
+            // 255.255.255.255 Endereço de broadcast. Todos os dispositivos conectados
+            // a rede estão habilitados a receber datagramas.
+            // Uma mensagem enviada para um endereço de broadcast
+            // pode ser recebido por todos os hospedeiros conectados à rede.
+            // ---------------------------------------------------------------------------------
+
+            /* Após realizar broadcast, registra servico na porta 1235 e aguarda por conexoes */
+            ServerSocket servidor = new ServerSocket(4321);
+            // dispara broadcast na rede
+            broadcast.start();
+            // loop que deve ser executado 4 vezes, uma vez para cada conexao
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
