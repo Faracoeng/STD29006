@@ -29,6 +29,11 @@ public class ServidorThread extends Thread {
             System.out.println("Cliente> " + mensagem);
             fluxoSaida.writeUTF("Oi, eu sou o servidor!");
 
+// ----------------------------  Fazer parte de arquivos aqui ----------------------------
+
+// ---------------------------------------------------------------------------------------
+
+
 
             /* Fecha fluxos e socket */
             fluxoEntrada.close();
