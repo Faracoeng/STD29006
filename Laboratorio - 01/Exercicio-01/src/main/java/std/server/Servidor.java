@@ -32,5 +32,15 @@ public class Servidor {
         String mensagem = fluxoEntrada.readUTF();
         System.out.println("Cliente > " + mensagem);
         fluxoSaida.writeUTF("Oi, eu sou o servidor!");
+
+
+
+
+
+        /* Fecha fluxos e socket */
+        fluxoEntrada.close();
+        fluxoSaida.close();
+        conexao.close();
+        servidor.close();
     }
 }
