@@ -41,6 +41,19 @@ public class Cliente {
             DataOutputStream fluxoSaida = new DataOutputStream(conexao.getOutputStream());
             //------------------------------------------------------------------------------------------------------
 
+            /* inicia a comunicacao */
+
+
+            String mensagem = fluxoEntrada.readUTF();
+            System.out.println("Servidor -> " + mensagem);
+            fluxoSaida.writeUTF("Matriz recebida");
+
+
+
+            /* Fecha fluxos e socket */
+            fluxoEntrada.close();
+            fluxoSaida.close();
+            conexao.close();
 
         }catch (Exception e){
             e.printStackTrace();
