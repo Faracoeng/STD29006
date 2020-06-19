@@ -57,7 +57,11 @@ public class Servidor {
             // dispara broadcast na rede
             broadcast.start();
             // loop que deve ser executado 4 vezes, uma vez para cada conexao
+            while (numeroDeConexoes < 4) {
 
+
+
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
