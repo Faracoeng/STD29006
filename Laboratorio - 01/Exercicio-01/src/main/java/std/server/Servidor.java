@@ -32,7 +32,58 @@ public class Servidor {
         String mensagem = fluxoEntrada.readUTF();
         System.out.println("Cliente > " + mensagem);
         fluxoSaida.writeUTF("Oi, eu sou o servidor!");
+//------------------------------------------------------------------------------
 
+        //Menu oferecido pelo servidor
+        int opcao = 0;
+        String id = "";
+        String dado = "";
+
+        agenda.criarLista("teste");
+        agenda.addValor("teste","primerioValor");
+        fluxoSaida.writeUTF(MENU);
+        do {
+            String resposta = fluxoEntrada.readUTF();
+            System.out.println(">>> Resposta do cliente: "+resposta);
+            opcao = Integer.parseInt(resposta); // converte string do cliente em um int
+
+            switch (opcao) {
+                // Criar nova lista
+                case 1 :
+                    fluxoSaida.writeUTF("Qual id de sua lista?");
+                    id = fluxoEntrada.readUTF();
+                    // System.out.println("servidor -> "+id);
+                    if(agenda.criarLista(id)) fluxoSaida.writeUTF("lista criada com sucesso" + MENU);
+                    else fluxoSaida.writeUTF("erro");
+                    break;
+
+                //  adicionar valores em uma lista já existente
+                case 2:
+                    fluxoSaida.writeUTF("Qual id da lista que deseja inserir o valor?");
+                    id = fluxoEntrada.readUTF();
+                    System.out.println("servidor "+ id);
+                    fluxoSaida.writeUTF("Qual valor deseja inserir?");
+                    dado = fluxoEntrada.readUTF();
+                    if(agenda.addValor(id,dado)) fluxoSaida.writeUTF("Valor: "+dado+" inserido com sucesso na lista: "+id  + MENU);
+                    break;
+                // remover ultimo valor
+                case 3:
+                    fluxoSaida.writeUTF("Qual id da lista que deseja remover o valor?");
+                    id = fluxoEntrada.readUTF();
+                    fluxoSaida.writeUTF(agenda.removerValor(id) + MENU);
+                    break;
+                // sair
+                case 4:
+                    fluxoSaida.writeUTF("Até mais...");
+                    break;
+                default:
+                    fluxoSaida.writeUTF("Opção inválida" + MENU);
+                    break;
+            }
+
+        } while (opcao != 4);
+
+//------------------------------------------------------------------------------
 
 
 
