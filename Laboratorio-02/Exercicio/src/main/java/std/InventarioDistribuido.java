@@ -9,7 +9,7 @@ import java.util.ArrayList;
 // disponibilizado para os desenvolvedores do
 // aplicativo Servidor e do aplicativo Cliente
 
-public class InventarioDistribuido extends Remote {
+public interface InventarioDistribuido extends Remote {
 
     public void adicionaAP(String nome, String mac, String freq, String local) throws RemoteException;
     public ArrayList<String> listarInventario() throws RemoteException;
