@@ -10,6 +10,10 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
+// Esta classe dispara IP do servidor por broadcast na rede, sempre em uma Thread
+// diferente pois no fluxo principal, o servidor deverá aguarda alguma solicitação
+// de conexao TCP proveniente das Raspberry PI
+
 public class DisparaIP extends Thread{
     String IPServidor;
     InetAddress enderecoBroadcast;
@@ -20,7 +24,7 @@ public class DisparaIP extends Thread{
         this.enderecoBroadcast = endereco;
     }
 
-
+    // Método que dispara IP do servidor na rede
     public void broadcast(String mensagem, InetAddress endereco) throws IOException {
 
         DatagramSocket socket = new DatagramSocket();
@@ -35,6 +39,8 @@ public class DisparaIP extends Thread{
         socket.close();
     }
 
-
+    public void interromperBroadcast() {
+        this.statusBroadcast = false;
+    }
 
 }
