@@ -4,8 +4,12 @@ package std.client;
 // IP do servidor e estabelecerá uma conecção TCP com ele
 
 
+import java.io.BufferedInputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.Socket;
 
 public class Cliente {
     public static void main(String[] args) {
@@ -25,6 +29,17 @@ public class Cliente {
             serverSocket.close();
             // pegando dado do pacote
             String dado = new String(receivePacket.getData());
+
+            //----------------------------respondendo---------------------------------------------------------------
+
+            /* Estabelendo conexao com o servidor */
+            Socket conexao = new Socket(dado, 4321);
+            System.out.println("Conectado! " + conexao);
+
+            /* Estabelece fluxos de entrada e saida */
+            DataInputStream fluxoEntrada = new DataInputStream(new BufferedInputStream(conexao.getInputStream()));
+            DataOutputStream fluxoSaida = new DataOutputStream(conexao.getOutputStream());
+            //------------------------------------------------------------------------------------------------------
 
 
         }catch (Exception e){
