@@ -6,4 +6,8 @@ package std.client;
 // da máquina onde o rmiregistry está sendo executado.
 
 public class Cliente {
+
+    private static String nomeServidor;
+    private static int porta = 12345;
+    private static final String NOMEOBJDIST = "MeuInventario";
 }
