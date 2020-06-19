@@ -34,6 +34,14 @@ public class Servidor {
     }
 
     public static void main(String[] args) {
+        // parte 2 do projeto
+        int numeroDeTrabalhadores = 0;
+        int linhasMatrizA = 0;
+        int colunasMatrizA = 0;
+        int linhasMatrizB = 0;
+        int colunasMatrizB = 0;
+        int semente = 0;
+
         try{
             // Variavel utilizada para verificar a quantidade de conexoes ativas no sistema
             int numeroDeConexoes = 0;
