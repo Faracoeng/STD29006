@@ -49,6 +49,10 @@ public class Servidor {
             linhasMatrizB = Integer.parseInt(args[3]);
             colunasMatrizB = Integer.parseInt(args[4]);
             semente = Integer.parseInt(args[5]);
+
+            //tratando possiveis erros
+            if(colunasMatrizA != linhasMatrizB) System.out.println("Impossivel multiplicar matrizes");
+
         } catch (Exception e) {
             numeroDeTrabalhadores = 4;
             linhasMatrizA = 1000;
