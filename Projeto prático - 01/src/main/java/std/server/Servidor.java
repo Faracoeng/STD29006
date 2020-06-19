@@ -42,6 +42,22 @@ public class Servidor {
         int colunasMatrizB = 0;
         int semente = 0;
 
+        try {
+            numeroDeTrabalhadores = Integer.parseInt(args[0]);
+            linhasMatrizA = Integer.parseInt(args[1]);
+            colunasMatrizA = Integer.parseInt(args[2]);
+            linhasMatrizB = Integer.parseInt(args[3]);
+            colunasMatrizB = Integer.parseInt(args[4]);
+            semente = Integer.parseInt(args[5]);
+        } catch (Exception e) {
+            numeroDeTrabalhadores = 4;
+            linhasMatrizA = 1000;
+            colunasMatrizA = 1000;
+            linhasMatrizB = 1000;
+            colunasMatrizB = 1000;
+            semente = 1000;
+        }
+
         try{
             // Variavel utilizada para verificar a quantidade de conexoes ativas no sistema
             int numeroDeConexoes = 0;
