@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+//Servidor realiza uma conexão TCP, e oferece menu para cliente interagir com o sistema
+
 public class Servidor {
     public static Gerenciador agenda = new Gerenciador();
     public static final String MENU = "\n         =========================================================" +
@@ -16,6 +18,8 @@ public class Servidor {
             "\n        |     4 - sair                                          |";
 
     public static void main(String[] args) throws IOException {
+
+	
         /* Registra servico na porta 1234 e aguarda por conexoes */
         ServerSocket servidor = new ServerSocket(1234);
 
