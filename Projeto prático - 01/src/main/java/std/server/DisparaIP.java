@@ -43,4 +43,17 @@ public class DisparaIP extends Thread{
         this.statusBroadcast = false;
     }
 
+    public void run() {
+
+        while (statusBroadcast) {
+            try {
+                broadcast(IPServidor, enderecoBroadcast);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        // System.out.println("parou a thread de broadcast");
+        this.statusBroadcast = true;
+    }
+
 }
