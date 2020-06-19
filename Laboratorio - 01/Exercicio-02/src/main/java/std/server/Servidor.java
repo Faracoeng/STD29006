@@ -10,7 +10,10 @@ public class Servidor {
 
 
         while(true){
+            // Servidor sempre aguarda uma conecção
             Socket conexao = servidor.accept();
+            // ao aceitar, dispara uma Thread para tratar
+            // separadamente cada conexao com cada cliente
             Thread t = new ServidorThread(conexao);
             t.start();
         }
