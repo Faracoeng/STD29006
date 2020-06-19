@@ -71,6 +71,10 @@ public class Servidor {
             // Encerra Thread que dispara broadcast na rede pois todas as 4 conexões ja foram estabelecidas
             broadcast.stop();
 
+            // dispara todas as Threads após estabelecer conexao com todas as Rasps
+            for (Thread obj : procesos) {
+                obj.start();
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
