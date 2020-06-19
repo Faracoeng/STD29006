@@ -8,7 +8,13 @@ package std.server;
 import java.net.InetAddress;
 
 public class DisparaIP extends Thread{
+    String IPServidor;
+    InetAddress enderecoBroadcast;
+    private boolean statusBroadcast = true;
 
-    public DisparaIP(String ipv4Semlo, InetAddress byName) {
+    public DisparaIP(String ip, InetAddress endereco){
+        this.IPServidor = ip;
+        this.enderecoBroadcast = endereco;
     }
+
 }
