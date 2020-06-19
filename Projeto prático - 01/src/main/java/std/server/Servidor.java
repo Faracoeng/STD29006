@@ -59,9 +59,19 @@ public class Servidor {
             // loop que deve ser executado 4 vezes, uma vez para cada conexao
             while (numeroDeConexoes < 4) {
 
-
-
+                System.out.println("Aguardando por conexoes");
+                // Aguarda cliente solicitar conexao TCP
+                Socket conexao = servidor.accept();
+                // Ao se conectar, conexao é salva no vetor de Threads
+                procesos[numeroDeConexoes] = new ServidorThread(conexao);
+                System.out.println(numeroDeConexoes + 1 + "º Raspbarry conectada");
+                // Registra numero de conexões
+                numeroDeConexoes += 1;
             }
+            // Encerra Thread que dispara broadcast na rede pois todas as 4 conexões ja foram estabelecidas
+            broadcast.stop();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
