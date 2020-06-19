@@ -43,12 +43,9 @@ public class Cliente {
 
             /* inicia a comunicacao */
 
-
             String mensagem = fluxoEntrada.readUTF();
             System.out.println("Servidor -> " + mensagem);
             fluxoSaida.writeUTF("Matriz recebida");
-
-
 
             /* Fecha fluxos e socket */
             fluxoEntrada.close();
