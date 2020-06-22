@@ -48,7 +48,9 @@ public class DisparaIP extends Thread{
         while (statusBroadcast) {
             try {
                 broadcast(IPServidor, enderecoBroadcast);
-            } catch (IOException e) {
+                // disparar broadcast apenas a cada 1 segunda para não travar a rede
+                Thread.sleep(1000);
+            } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
         }
