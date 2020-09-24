@@ -1,8 +1,10 @@
 package std.Client;
 
 import java.net.DatagramSocket;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class ProcessoWorker {
@@ -57,5 +59,29 @@ public class ProcessoWorker {
     private int relogioVetorial[];
     private int indiceProcesso;
     // ----------------------
+    public ProcessoWorker(String ip, int porta, String idUnico, int sementeUnica, int tempoMaximo,
+                          int tempoJitter, String arquivoProcessos, String arquivoEventos) throws SocketException {
+        this.ip = ip;
+        this.porta = porta;
+        // recebe a porta passada como linha de comando, e incrementa em 1 para utilizar como porta para socket UDP
+        this.portaEnvioUDP = this.porta + 1;
+        this.idUnico = idUnico;
+        this.sementeUnica = sementeUnica;
+        this.tempoMaximo = tempoMaximo;
+        this.tempoJitter = tempoJitter;
+        this.arquivoProcessos = arquivoProcessos;
+        this.arquivoEventos = arquivoEventos;
+        // SOCKET UDP na porta que será utilizada para enviar mensagens para outros workers
+        //this.ReceberPacoteUDP receptorPacotes = new ReceberPacoteUDP(this.porta);
+        this.cliente = new DatagramSocket(this.portaEnvioUDP);
+        // fila de eventos para executar
+        this.filaEventos = new LinkedList<>();
+        // Define o indice de cada worker no  relogio vetorial através do pID deste
+        // garante pegar qualquer indice de processo
+        this.indiceProcesso = Integer.parseInt(idUnico.substring(idUnico.length() - (idUnico.length() - 1)));
+        //this.ipLog = ipLog;
+        this.tabelaProcessos = new HashMap<>();
+
+    }
 
 }
