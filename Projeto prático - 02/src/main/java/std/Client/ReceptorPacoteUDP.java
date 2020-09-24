@@ -3,7 +3,7 @@ package std.Client;
 import java.io.DataOutputStream;
 import java.util.ArrayList;
 
-public class ReceptorPacoteUDP {
+public class ReceptorPacoteUDP extends Thread {
 
     private ArrayList<String[]> listaRecebida;
     private int tempoRecebido;
