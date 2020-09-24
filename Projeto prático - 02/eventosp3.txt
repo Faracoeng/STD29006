@@ -1,0 +1,4 @@
+L,Primeiralinha
+L,Segundalinha
+S,Terceiralinha
+L,Quartalinha
