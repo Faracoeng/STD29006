@@ -386,9 +386,9 @@ public class ProcessoWorker {
             // um valor em milissegundos para ser usado como o tempo máximo que o processo ficará aguardando antes de processar o próximo evento
             int tempoMax = processo.sortearTempoMaximo();
             // Thread que le eventos da lista de ventos
-            processo.leitorEventos = new LeitorDeArquivoEventos(tempoMax, processo.listaDeEventos, processo, processo.idUnico,fluxoSaida);
+            processo.leitorEventos = new LeitorDeArquivosEventos(tempoMax, processo.listaDeEventos, processo, processo.idUnico,fluxoSaida);
             // começar a ouvir pacotes UDP
-            processo.receptorPacotes = new ReceberPacoteUDP(processo.porta, processo);
+            processo.receptorPacotes = new ReceptorPacoteUDP(processo.porta, processo);
 
             processo.executarEventos(fluxoEntrada, fluxoSaida, tempoMax);
 
