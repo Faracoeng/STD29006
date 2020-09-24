@@ -4,7 +4,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class LeitorDeArquivosEventos {
+public class LeitorDeArquivosEventos extends Thread {
 
     private ArrayList<String[]> listaRecebida;
     private int tempoRecebido;
@@ -20,7 +20,6 @@ public class LeitorDeArquivosEventos {
         LeitorDeArquivosEventos.obj = obj;
         this.fluxoSaida = saida;
     }
-
     @Override
     public void run() {
         int i = 0;
@@ -48,6 +47,5 @@ public class LeitorDeArquivosEventos {
             i++;
         }
     }
-
 
 }
