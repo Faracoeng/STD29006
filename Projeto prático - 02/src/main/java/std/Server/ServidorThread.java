@@ -1,4 +1,4 @@
 package std.Server;
 
-public class ServidorThread {
+public class ServidorThread extends Thread {
 }
